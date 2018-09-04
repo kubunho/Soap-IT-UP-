@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.box {
+
+    position: relative;
+    border: 3px solid grey;
+    width: 1100px;
+    height: 900px;
+    margin: 0 auto;
+
+}
+
+#title {
+    width: 200px;
+    
+    text-align: center;
+}
+.description {
+    text-align: center;
+}
+
+.button {
+    left: 42%;
+    position: absolute;
+    background-color: gray;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 12px;
+}
+.board {
+    position: relative;
+    margin-top: 90px;
+    height: 750px;
+    background: url("../images/tloo.jpg");
+    background-size: cover;
+}
+.wall {
+    position: absolute;
+    height: 100%;
+    width: 440px;
+    right: 0;
+    z-index: 2;
+}
+.sven {
+    position: absolute;
+    z-index: 1;
+    left: 623px;
+    top: 147px;
+}
+.soap {
+    position: absolute;
+    z-index: 4;
+    left: 886px;
+    top: 659px;
+    height: 80px;
+    width: 120px;
+}
