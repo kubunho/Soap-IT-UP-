@@ -19,15 +19,23 @@ body {
 }
 
 #title {
+    color: white;
+    background-image: url("../images/game.png");
+    left: 41%;
+    height: 50px;
     width: 200px;
-    
+    position: absolute;
     text-align: center;
 }
 .description {
+    left: 146px;
+    top: 62px;
+    position: absolute;
     text-align: center;
 }
 
 .button {
+    top: 100px;
     left: 42%;
     position: absolute;
     background-color: gray;
@@ -41,10 +49,15 @@ body {
 }
 .board {
     position: relative;
-    margin-top: 90px;
+    margin-top: 150px;
     height: 750px;
     background: url("../images/tloo.jpg");
     background-size: cover;
+}
+.timer {
+    color: white;
+    position: absolute;
+    font-size: 50px;
 }
 .wall {
     position: absolute;
@@ -56,7 +69,7 @@ body {
 .sven {
     position: absolute;
     z-index: 1;
-    left: 623px;
+    left: 700px;
     top: 147px;
 }
 .soap {
