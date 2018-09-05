@@ -76,7 +76,47 @@ body {
     position: absolute;
     z-index: 4;
     left: 886px;
-    top: 659px;
-    height: 80px;
-    width: 120px;
+    top: 648px;
+    height: 100px;
+    width: 150px;
+}
+.result{
+    position: absolute;
+    z-index: 5;
+    width: 300px;
+    left: 396px;
+    top:350px;
+    height: 200px;
+    font-size: 50px;
+    color: #8c2020;
+}
+.svenTalking{
+    position: absolute;
+    z-index: 3;
+    height: 137px;
+    left: 491px;
+    top: 30px;
+}
+.svenFace {
+    position: absolute;
+    z-index: 7;
+    top: 54px;
+    left: 405px;
+
+}
+.resultAfterTimeOut{
+    position: absolute;
+    z-index: 5;
+    width: 453px;
+    left: 325px;
+    top:430px;
+    height: 200px;
+    font-size: 50px;
+    color: #8c2020;
+}
+.sadSven {
+    position: absolute;
+    z-index: 10;
+    left: 629px;
+    top: 150px
 }
