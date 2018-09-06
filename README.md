@@ -1,2 +1,2 @@
 # Soap-IT-UP-
-First funny game 
+My funny game
