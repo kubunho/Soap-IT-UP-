@@ -4,8 +4,17 @@
     border: 0;
     box-sizing: border-box;
 }
+@font-face {
+    font-family: 'bellfort_rough_demoregular';
+    src: url('/fonts/bellfortroughdemo-webfont.woff2') format('woff2'),
+    url('/fonts/bellfortroughdemo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica,Roboto,bellfort_rough_demoregular, sans-serif;
+
 }
 
 .box {
@@ -13,32 +22,43 @@ body {
     position: relative;
     border: 3px solid grey;
     width: 1100px;
-    height: 900px;
+    height: 881px;
     margin: 0 auto;
 
 }
 
 #title {
+    left: 40%;
+    background-image: url("../images/showerFun.png");
     color: white;
-    background-image: url("../images/game.png");
-    left: 41%;
-    height: 50px;
-    width: 200px;
+    height: 127px;
+    width: 237px;
     position: absolute;
+
+}
+.titleSpan{
+    left: 464px;
+    top: 5px;
+    position: absolute;
+    font-family: 'Special Elite', cursive;
     text-align: center;
+
 }
 .description {
-    left: 146px;
-    top: 62px;
+    color: #8c2020;
+    left: 95px;
+    top: 120px;
     position: absolute;
     text-align: center;
+    font-size: 50px;
+    width: 900px;
 }
 
 .button {
-    top: 100px;
+    top: 360px;
     left: 42%;
     position: absolute;
-    background-color: gray;
+    background-color: #8c2020;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -47,9 +67,18 @@ body {
     font-size: 16px;
     border-radius: 12px;
 }
+.movement {
+    font-size: 29px;
+    color: white;
+    font-family: 'Roboto';
+    position: absolute;
+    width: 800px;
+    left: 150px;
+    top: 463px;
+}
 .board {
     position: relative;
-    margin-top: 150px;
+    margin-top: 125px;
     height: 750px;
     background: url("../images/tloo.jpg");
     background-size: cover;
@@ -70,7 +99,7 @@ body {
     position: absolute;
     z-index: 1;
     left: 700px;
-    top: 147px;
+    top: 81px;
 }
 .soap {
     position: absolute;
@@ -80,7 +109,7 @@ body {
     height: 100px;
     width: 150px;
 }
-.result{
+.svenSawYou{
     position: absolute;
     z-index: 5;
     width: 300px;
@@ -90,12 +119,18 @@ body {
     font-size: 50px;
     color: #8c2020;
 }
+.soapUp{
+    color: #8c2020;
+}
+.soapDown{
+    color: #8c2020;
+}
 .svenTalking{
     position: absolute;
     z-index: 3;
-    height: 137px;
-    left: 491px;
-    top: 30px;
+    height: 121px;
+    left: 480px;
+    top: -1px;
 }
 .svenFace {
     position: absolute;
@@ -114,9 +149,87 @@ body {
     font-size: 50px;
     color: #8c2020;
 }
-.sadSven {
+.beforeStart {
+    background: black;
+    height: 750px;
     position: absolute;
-    z-index: 10;
-    left: 629px;
-    top: 150px
+    width: 1095px;
+    z-index: 15;
+}
+.music {
+    display: none;
+}
+.jonny {
+    display: none;
+}
+.musicPlay{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 10%;
+    top:5%;
+}
+.timeIsOver {
+    position: absolute;
+    z-index: 5;
+    width: 426px;
+    left: 373px;
+    top: 322px;
+    height: 200px;
+    font-size: 67px;
+    color: #8c2020;
+}
+.uWin{
+    position: absolute;
+    z-index: 5;
+    width: 781px;
+    left: 186px;
+    top: 99px;
+    height: 200px;
+    font-size: 72px;
+    color: #8c2020;
+}
+.nextLevel {
+    z-index: 22;
+    top: 434px;
+    left: 39%;
+    position: absolute;
+    background-color: #8c2020;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 48px;
+    border-radius: 12px;
+    opacity: 1;
+}
+.nextLevel:hover {
+    opacity: 0.5;
+    transform: scale(1.3);
+}
+.cryinSven{
+    display: none;
+}
+.secondStage {
+    top: 200px;
+    font-size: 60px;
+    display: none;
+    position: absolute;
+    color: white;
+    width: 600px;
+    left: 29%;
+}
+.titanic {
+    display: none;
+}
+.endSubtitles {
+    top: 350px;
+    font-size: 60px;
+    display: none;
+    position: absolute;
+    color: white;
+    width: 560px;
+    left: 29%;
+
 }

@@ -1,35 +1,73 @@
 
-
+const music = document.querySelector(".music");
 const board = document.querySelector(".board");
 const sven = document.querySelector(".sven");
 const button = document.querySelector(".button");
 const soap = document.querySelector(".soap");
 const wall = document.querySelector(".wall");
-const result = document.querySelector(".result");
+const svenSawYou = document.querySelector(".svenSawYou");
 const timer = document.querySelector(".timer");
-const gotIt = document.querySelector(".result");
 const svenTalk = document.querySelector(".svenTalking");
 const loseFace = document.querySelector(".svenFace");
 const resultAfterTimeOut = document.querySelector(".resultAfterTimeOut");
-const sadSven = document.querySelector(".sadSven");
+const beforeStart = document.querySelector(".beforeStart");
+const musicOnOff = document.querySelector(".musicPlay");
+const uWin = document.querySelector(".uWin");
+const nextLevelButton = document.querySelector(".nextLevel");
+const jonny = document.querySelector(".jonny");
+const crySven = document.querySelector(".cryinSven");
+const secondStage = document.querySelector(".secondStage");
+const titanic = document.querySelector(".titanic");
+const subtitles = document.querySelector(".endSubtitles")
 
 
-let getStarted = false;
 let svenMaxPixels = 700;
 let speed = -4;
-let soapSpeed = 20;
-let svenMinPixels = 616;
+let soapSpeed = 4;
 let svenIsWatching= false;
 let checkTimeOut = true;
 let soapMaxPixels = 648;
 let lost = false;
+let win = false;
 let changeSvenMoves;
-let sadSvenMaxPixels = 629;
 svenTalk.style.display = "none";
 loseFace.style.display = "none";
-sadSven.style.display = "none";
+musicOnOff.style.backgroundColor = "green";
+nextLevelButton.style.display = "none";
+
+musicOnOff.addEventListener("click", function () {
+    console.log("xd");
+   console.log(musicOnOff.value);
+    if(musicOnOff.value == "on"){
+        music.pause();
+        musicOnOff.value = "off";
+        musicOnOff.style.backgroundColor = "red";
+    }else{
+        music.play();
+        musicOnOff.value = "on";
+        musicOnOff.style.backgroundColor = "green";
+    }
+
+});
+
+
+music.loop = true;
+music.currentTime =1;
+
+
+    button.addEventListener("mouseover", function () {
+        button.style.backgroundColor = "gray";
+
+    });
+    button.addEventListener("mouseout", function () {
+        button.style.backgroundColor = "#8c2020";
+
+    });
+
 
     button.addEventListener("click", function () {
+        music.play();
+        beforeStart.style.display = "none";
 
         let counter = 60;
         let clock = setInterval(function () {
@@ -39,59 +77,114 @@ sadSven.style.display = "none";
 
             }
             if (counter === 0) {
-
+                soap.style.display = "none";
+                board.style.background = "black";
+                wall.style.display = "none";
+                sven.style.display = "none";
+                svenTalk.style.display = "none";
                 clearInterval(counter);
+                clearInterval(clock);
+                music.pause();
+                setTimeout(() => {
+                    jonny.play();
+                    loseFace.style.display = "block";
+
+                    resultAfterTimeOut.innerHTML = "Sven nie pyta. Sven bierze co mu się należy";
+                },1000);
+
             }
             counter--;
         }, 1000);
 
-
         let gameInterval =setInterval(() => {
-            svenTalk.style.display = "none";
-            if(svenMaxPixels == 616){
-                svenTalk.style.display = "block";
-                svenIsWatching = true;
-            }else{
-                svenIsWatching = false;
+            if (counter >0) {
+                svenTalk.style.display = "none";
+                if (svenMaxPixels == 616) {
+                    svenTalk.style.display = "block";
+                    svenIsWatching = true;
+                } else {
+                    svenIsWatching = false;
+                }
             }
             if(svenIsWatching == true && soapMaxPixels != 648){
+                music.pause();
                 lost = true;
                 board.style.background = "black";
                 wall.style.display = "none";
                 sven.style.display = "none";
                 svenTalk.style.display = "none";
-                result.innerHTML = "Wygrałes!";
+                svenSawYou.innerHTML = "Wygrałes!";
                 clearInterval(clock);
-                //clearInterval(svenGoesLeft);
                 setTimeout(() =>{
-                    console.log("dziaua tajmałt");
+                    crySven.play();
                     loseFace.style.display = "block";
                     resultAfterTimeOut.innerHTML = "Noc ze Svenem!";
-
                 },1500);
 
 
 
             }else if (soapMaxPixels == 445){
+                nextLevelButton.style.display = "block";
+                music.pause();
                 clearInterval(gameInterval);
                 clearInterval(clock);
+                uWin.innerHTML = "Tym razem ci się udało, ale wiedz, że Sven tak łatwo nie odpuści...";
+                board.style.background = "black";
+                wall.style.display = "none";
                 sven.style.display = "none";
                 svenTalk.style.display = "none";
-                let sadSvenMoves = setInterval(() => {
-                    sadSven.style.display = "block";
-                    sadSvenMaxPixels = speed;
-                    sadSven.style.left = sadSvenMaxPixels + "px";
-                    if(sadSvenMaxPixels <= 476) {
-                        clearInterval(sadSvenMaxPixels);
-                        console.log("hehehe");
-                    }
+                win = true;
+                console.log("win");
+                if (win == true){
+                nextLevelButton.addEventListener("click", function () {
+                    secondStage.style.display = "block";
+                    nextLevelButton.style.display = "none";
+                    soap.style.display = "none";
+                    uWin.style.display = "none";
+                    secondStage.innerHTML = "Juz niedługo druga faza gry. Cela dzielona ze Svenem.";
+                    setTimeout(() => {
+                        secondStage.innerHTML = "Prycza wydaje się być wygodna...";
+                    },2000);
+                    setTimeout(() => {
+                        secondStage.innerHTML = "Lecz Sven tylko czeka...";
+                    },4000);
+                    setTimeout(() => {
+                        secondStage.innerHTML = "Az zaśniesz przodem do ściany...";
+                    },6000);
+                    setTimeout(() => {
+                        titanic.play();
+                        secondStage.innerHTML = "Podziękowania:";
+                    },8000);
+                    setTimeout(() => {
+                        subtitles.style.display = "block";
+                        subtitles.innerHTML = "Prowadzącym...";
+                    },2500*5);
+                    setTimeout(() => {
+                        subtitles.innerHTML = "Mentorowi Mateuszowi...";
+                    },2500*6);
+                    setTimeout(() => {
+                        subtitles.innerHTML = "Pracownikom CodersLab...";
+                    },2500*7);
+                    setTimeout(() => {
+                        subtitles.innerHTML = "Kolegom i koleżance z grupy";
+                    },2500*8);
+                    setTimeout(() => {
+                        subtitles.innerHTML = "Grafikom: Damianowi i Patrykowi";
+                    },2500*9);
+                    setTimeout(() => {
+                        subtitles.style.display = "none";
+                        secondStage.innerHTML = "KONIEC";
 
-                    },50);
+                    },2500*10);
+
+
+                });
+                }
+
+
+
 
             }
-
-
-
             if (checkTimeOut == true) {
                 checkTimeOut = false;
 
@@ -106,7 +199,6 @@ sadSven.style.display = "none";
                         if (svenMaxPixels <= 616) {
                             if (svenMaxPixels < 616) {
                             } else if (svenMaxPixels == 616) {
-                                console.log("no weź mydełko moja walentynko");
                             }
                             clearInterval(svenMoves);
                             checkTimeOut = true;
@@ -114,7 +206,7 @@ sadSven.style.display = "none";
                             clearInterval(svenMoves);
                             checkTimeOut = true;
                         }
-                    }, 50);
+                    }, Math.random() *50 + 20);
                 }, Math.random() * 5000 + 1000);
             }
 
@@ -122,17 +214,24 @@ sadSven.style.display = "none";
         window.addEventListener("keyup", function (e) {
 
             if (e.which == "90") {
-                soapMaxPixels -= soapSpeed;
-                soap.style.top = soapMaxPixels + "px";
-                if (soapMaxPixels < 445) {
-                    soapMaxPixels = 445;
-                    console.log("brawo");
-                }
+                if (lost == false || win == true) {
+                    soapMaxPixels -= soapSpeed;
+                    soap.style.top = soapMaxPixels + "px";
+                    if (soapMaxPixels < 445) {
+                        soapMaxPixels = 445;
+                    }
 
-                console.log("dziala");
+                    } else {
+                        console.log("nie moszna juz");
+                    }
+
             } else if (e.which == "88") {
-                soap.style.top = 648 + "px";
-                soapMaxPixels = 648;
+                if (lost == false || win == true) {
+                    soap.style.top = 648 + "px";
+                    soapMaxPixels = 648;
+                } else {
+                    console.log("nie moszna juz");
+                }
 
             }
         });
