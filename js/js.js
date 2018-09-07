@@ -93,7 +93,7 @@ music.currentTime =1;
 
             }
             counter--;
-        }, 100);
+        }, 1000);
 
         let gameInterval =setInterval(() => {
             if (counter >0) {
