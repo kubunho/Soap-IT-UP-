@@ -23,7 +23,7 @@ const subtitles = document.querySelector(".endSubtitles")
 
 let svenMaxPixels = 700;
 let speed = -4;
-let soapSpeed = 4;
+let soapSpeed = 4.5;
 let svenIsWatching= false;
 let checkTimeOut = true;
 let soapMaxPixels = 648;
@@ -36,7 +36,6 @@ musicOnOff.style.backgroundColor = "green";
 nextLevelButton.style.display = "none";
 
 musicOnOff.addEventListener("click", function () {
-    console.log("xd");
    console.log(musicOnOff.value);
     if(musicOnOff.value == "on"){
         music.pause();
@@ -94,7 +93,7 @@ music.currentTime =1;
 
             }
             counter--;
-        }, 1000);
+        }, 100);
 
         let gameInterval =setInterval(() => {
             if (counter >0) {
@@ -144,18 +143,19 @@ music.currentTime =1;
                     secondStage.innerHTML = "Juz niedługo druga faza gry. Cela dzielona ze Svenem.";
                     setTimeout(() => {
                         secondStage.innerHTML = "Prycza wydaje się być wygodna...";
-                    },2000);
+                    },2300);
                     setTimeout(() => {
                         secondStage.innerHTML = "Lecz Sven tylko czeka...";
-                    },4000);
+                    },4300);
                     setTimeout(() => {
                         secondStage.innerHTML = "Az zaśniesz przodem do ściany...";
-                    },6000);
+                    },6300);
+                    setTimeout(() => {
+
+                        secondStage.innerHTML = "Podziękowania:";
+                    },8300);
                     setTimeout(() => {
                         titanic.play();
-                        secondStage.innerHTML = "Podziękowania:";
-                    },8000);
-                    setTimeout(() => {
                         subtitles.style.display = "block";
                         subtitles.innerHTML = "Prowadzącym...";
                     },2500*5);
