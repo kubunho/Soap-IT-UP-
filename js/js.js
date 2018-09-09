@@ -1,4 +1,4 @@
-
+﻿
 const music = document.querySelector(".music");
 const board = document.querySelector(".board");
 const sven = document.querySelector(".sven");
@@ -23,7 +23,7 @@ const subtitles = document.querySelector(".endSubtitles")
 
 let svenMaxPixels = 700;
 let speed = -4;
-let soapSpeed = 4.5;
+let soapSpeed = 5;
 let svenIsWatching= false;
 let checkTimeOut = true;
 let soapMaxPixels = 648;
@@ -169,7 +169,7 @@ music.currentTime =1;
                         subtitles.innerHTML = "Kolegom i koleżance z grupy";
                     },2500*8);
                     setTimeout(() => {
-                        subtitles.innerHTML = "Grafikom: Damianowi i Patrykowi";
+                        subtitles.innerHTML = "Grafikom: Damianowi , Patrykowi i Białemu";
                     },2500*9);
                     setTimeout(() => {
                         subtitles.style.display = "none";
